@@ -29,22 +29,56 @@ const Navbar = () => {
     if (hasUserAnAccount && !isUserSignOut) {
       return (
         <>
-          <li className='text-black/60'>
-            {parsedAccount?.email}
-          </li>
-          <li>
+        <li className='font-semibold text-lg pb-20'>
+          <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
+            Inventory System
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/'
+            onClick={() => context.setSearchByCategory()}
+            className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+            Search Product
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/clothes'
+            onClick={() => context.setSearchByCategory('clothes')}
+            className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+            Inventory Update
+          </NavLink>
+        </li>
+        <li>
             <NavLink
               to='/my-orders'
               className={({ isActive }) => isActive ? activeStyle : undefined}>
-              My Orders
+              Product Registration
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+              to='/my-order'
+              className={({ isActive }) => isActive ? activeStyle : undefined}>
+              Report's Generation
             </NavLink>
           </li>
-          <li>
+      
+          
+          <li className='pt-28'>
             <NavLink
               to='/my-account'
               className={({ isActive }) => isActive ? activeStyle : undefined}>
               My Account
             </NavLink>
+          </li>
+          <li className='text-black/60'>
+            {parsedAccount?.email}
           </li>
           <li>
             <NavLink
@@ -56,93 +90,15 @@ const Navbar = () => {
           </li>
         </>
       )
-    } else {
-      return (
-        <li>
-          <NavLink
-            to="/sign-in"
-            className={({ isActive }) => isActive ? activeStyle : undefined }
-            onClick={() => handleSignOut()}>
-            Sign in
-          </NavLink>
-        </li>
-      )
     }
   }
 
   return (
-    <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light bg-white'>
-      <ul className='flex items-center gap-3'>
-        <li className='font-semibold text-lg'>
-          <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
-            Shopi
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/'
-            onClick={() => context.setSearchByCategory()}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            All
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/clothes'
-            onClick={() => context.setSearchByCategory('clothes')}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Clothes
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/electronics'
-            onClick={() => context.setSearchByCategory('electronics')}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Electronics
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/furnitures'
-            onClick={() => context.setSearchByCategory('furnitures')}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Furnitures
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/toys'
-            onClick={() => context.setSearchByCategory('toys')}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Toys
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/others'
-            onClick={() => context.setSearchByCategory('others')}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Others
-          </NavLink>
-        </li>
-      </ul>
-      <ul className='flex items-center gap-3'>
+    <nav className='flex fixed z-10 top-0 w-60 h-full py-5 px-8 text-sm font-light bg-white'>
+      <ul className='flex flex-col items-center gap-3'>
         {renderView()}
         <li className='flex items-center'>
-          <ShoppingCart />
+          <ShoppingCart/>
         </li>
       </ul>
     </nav>
