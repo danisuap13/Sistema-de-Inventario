@@ -31,7 +31,16 @@ function Home() {
         placeholder='Search a product'
         className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
         onChange={(event) => context.setSearchByTitle(event.target.value)} />
-      <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
+      <div className='flex-col w-full max-w-screen-lg pb-10'>
+        <div
+        className='bg-white cursor-pointer w-full border rounded-lg border-black pb-5 mb-5'>
+          <p className='flex justify-between items-center'>
+            <span className='text-sm font-bold w-60 pl-4'>NAME</span>
+            <span className='text/sm font-bold w-15 self pl-6'>CATEGORY</span>
+            <span className='text-lg font-bold w-15 pr-6'>AMOUNT</span>
+            <span className='text-lg font-bold w-20'>PRICE</span>
+          </p>
+        </div>
         {renderView()}
       </div>
       <ProductDetail />

@@ -94,7 +94,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='flex fixed z-10 top-0 w-60 h-full py-5 px-8 text-sm font-light bg-white'>
+    <nav 
+      className={`flex fixed z-10 top-0 w-60 h-full py-5 px-8 text-sm font-light bg-white ${(hasUserAnAccount && !isUserSignOut)? "border-2 border-black" : ""}`}>
       <ul className='flex flex-col items-center gap-3'>
         {renderView()}
         <li className='flex items-center'>
