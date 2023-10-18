@@ -35,23 +35,8 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to='/'
-            onClick={() => context.setSearchByCategory()}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
+          <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
             Search Product
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/clothes'
-            onClick={() => context.setSearchByCategory('clothes')}
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Inventory Update
           </NavLink>
         </li>
         <li>

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ArchiveBoxIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
+import { ArchiveBoxIcon } from '@heroicons/react/24/solid'
 import { ShoppingCartContext } from '../../Context'
 
 const ShoppingCart = () => {
