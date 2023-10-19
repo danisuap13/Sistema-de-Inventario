@@ -3,7 +3,7 @@ import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
 import ProductDetail from '../../Components/ProductDetail'
 import { ShoppingCartContext } from '../../Context'
-import { ExclamationCircleIcon, ShieldExclamationIcon } from '@heroicons/react/24/outline'
+import { ShieldExclamationIcon } from '@heroicons/react/24/outline'
 
 function Home() {
   const context = useContext(ShoppingCartContext)
@@ -39,12 +39,13 @@ function Home() {
         onChange={(event) => context.setSearchByTitle(event.target.value)} />
       <div className='flex-col w-full max-w-screen-lg pb-10'>
         <div
-        className='bg-white cursor-pointer w-full border rounded-lg border-black pb-5 mb-5'>
+        className='bg-white cursor-pointer w-full border rounded-lg border-black p-5 mb-5'>
           <p className='flex justify-between items-center'>
-            <span className='text-lg font-bold w-60 pl-4'>NAME</span>
-            <span className='text-lg font-bold w-15 self pl-6'>CATEGORY</span>
-            <span className='text-lg font-bold w-15 pr-6'>AMOUNT</span>
-            <span className='text-lg font-bold w-20'>PRICE</span>
+            <span className='text-lg font-bold w-32'>OPTIONS</span>
+            <span className='text-lg font-bold w-44'>NAME</span>
+            <span className='text-lg font-bold w-15 pl-20'>CATEGORY</span>
+            <span className='text-lg font-bold w-15 pr-10'>AMOUNT</span>
+            <span className='text-lg font-bold w-20 pl-2'>PRICE</span>
           </p>
         </div>
         {renderView()}

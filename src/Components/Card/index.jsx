@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
+import { BuildingStorefrontIcon, ChevronUpDownIcon, ClockIcon, PencilSquareIcon } from '@heroicons/react/24/outline'
 
 const Card = (data) => {
   const context = useContext(ShoppingCartContext)
@@ -19,13 +20,18 @@ const Card = (data) => {
 
   return (
     <div
-      className='bg-white cursor-pointer w-full border border-gray-400 mb-1'
+      className='bg-white cursor-pointer w-full border border-gray-400 mb-3 p-2'
       onClick={() => showProduct(data.data)}>
       <p className='flex justify-between items-center'>
-        <span className='text-sm font-light w-72 pl-4'>{data.data.title}</span>
-        <span className='text/sm font-light w-20 self'>{data.data.category.name}</span>
-        <span className='text-lg font-light w-20'>20</span>
-        <span className='text-lg font-medium w-20'>${data.data.price}</span>
+        <p className='flex w-20 justify-between'>
+          <PencilSquareIcon className='w-5' />
+          <ClockIcon className='w-5'/>
+          <BuildingStorefrontIcon className='w-5'/>
+        </p>
+          <span className='text-sm font-light w-72 pl-4'>{data.data.title}</span>
+          <span className='text/sm font-light w-20 self'>{data.data.category.name}</span>
+          <span className='text-lg font-light w-20'>20</span>
+          <span className='text-lg font-medium w-20'>${data.data.price}</span>
       </p>
     </div>
   )
