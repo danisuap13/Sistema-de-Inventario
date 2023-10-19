@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalState
 
   return (
-    <div className={`flex flex-col items-center mt-20 ${ (hasUserAnAccount && !isUserSignOut)? "pl-60" : ""}`}>
+    <div className={`flex flex-col items-center mt-20 ${ (hasUserAnAccount && !isUserSignOut)? "pl-60 pr-5" : ""}`}>
       {children}
     </div>
   )

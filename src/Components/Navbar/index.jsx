@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCartContext } from '../../Context'
-import ShoppingCart from '../ShoppingCart'
 
 const Navbar = () => {
   const context = useContext(ShoppingCartContext)
@@ -29,7 +28,7 @@ const Navbar = () => {
     if (hasUserAnAccount && !isUserSignOut) {
       return (
         <>
-        <li className='font-semibold text-lg pb-20'>
+        <li className='font-semibold text-lg pb-20 text-center'>
           <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
             Inventory System
           </NavLink>
@@ -80,12 +79,9 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`flex fixed z-10 top-0 w-60 h-full py-5 px-8 text-sm font-light bg-white ${(hasUserAnAccount && !isUserSignOut)? "border-2 border-black" : ""}`}>
-      <ul className='flex flex-col items-center gap-3'>
+      className={`flex fixed z-10 top-0 w-52 h-full py-5 px-8 text-sm font-light bg-white ${(hasUserAnAccount && !isUserSignOut)? "border-2 border-black" : ""}`}>
+      <ul className='flex flex-col justify-center items-center gap-3'>
         {renderView()}
-        <li className='flex items-center'>
-          <ShoppingCart/>
-        </li>
       </ul>
     </nav>
   )
